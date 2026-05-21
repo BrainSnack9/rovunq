@@ -56,6 +56,7 @@ const main = async () => {
   console.log(`Job folder: ${paths.root}`);
   console.log(`Transcript: ${paths.transcript}`);
   console.log(`Edit plan: ${paths.editPlan}`);
+  console.log(`Timeline: ${paths.timeline}`);
   console.log(`Intermediate cut: ${paths.intermediateCut}`);
   console.log(`Final output: ${paths.finalOutput}`);
 };

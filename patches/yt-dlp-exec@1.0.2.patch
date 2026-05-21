@@ -1,0 +1,12 @@
+diff --git a/package.json b/package.json
+index 47c39b40c0d1f1eb307b97aa64d23e4f1a38ed96..580df0ad94cf28744869ad972f9469bc4934d466 100644
+--- a/package.json
++++ b/package.json	
+@@ -63,7 +63,6 @@
+     "lint": "standard-markdown README.md && standard",
+     "postinstall": "node scripts/postinstall.js",
+     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
+-    "preinstall": "npx bin-version-check-cli python \">=2\"",
+     "prerelease": "npm run update:check && npm run contributors",
+     "pretest": "npm run lint",
+     "release": "standard-version -a",

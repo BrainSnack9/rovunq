@@ -93,6 +93,7 @@ export const getWebJob = async (id: string) => {
       transcript: `/api/jobs/${id}/artifact/transcript`,
       editPlan: `/api/jobs/${id}/artifact/edit-plan`,
       renderPlan: `/api/jobs/${id}/artifact/render-plan`,
+      timeline: `/api/jobs/${id}/artifact/timeline`,
       intermediateCut: `/api/jobs/${id}/artifact/intermediate-cut`,
       finalOutput: finalExists ? `/api/jobs/${id}/artifact/final-output` : null,
     },
@@ -111,6 +112,7 @@ const calculateProgress = (logs: JobLogEntry[], status: WebJobStatus) => {
     cut: 10,
     vertical: 5,
     'render-plan': 1,
+    timeline: 1,
     remotion: 12,
     bgm: 2,
   };
@@ -166,6 +168,7 @@ export const getArtifactPath = async (id: string, artifact: string) => {
     transcript: paths.transcript,
     'edit-plan': paths.editPlan,
     'render-plan': paths.renderPlan,
+    timeline: paths.timeline,
     'intermediate-cut': paths.intermediateCut,
     'final-output': paths.finalOutput,
   };

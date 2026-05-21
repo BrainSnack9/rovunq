@@ -14,6 +14,7 @@ export type JobPaths = {
   transcript: string;
   editPlan: string;
   renderPlan: string;
+  timeline: string;
   intermediateCut: string;
   verticalVideo: string;
   remotionOutput: string;
@@ -49,6 +50,7 @@ export const getJobPaths = async (cwd: string, jobId: string): Promise<JobPaths>
     transcript: path.join(artifactsDir, 'transcript.json'),
     editPlan: path.join(artifactsDir, 'edit-plan.json'),
     renderPlan: path.join(artifactsDir, 'render-plan.json'),
+    timeline: path.join(artifactsDir, 'timeline.json'),
     intermediateCut: path.join(artifactsDir, 'intermediate-cut.mp4'),
     verticalVideo: path.join(artifactsDir, 'vertical.mp4'),
     remotionOutput: path.join(artifactsDir, 'remotion-output.mp4'),

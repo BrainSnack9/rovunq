@@ -13,6 +13,7 @@ Output:
 
 - `transcript.json`
 - `edit-plan.json`
+- `timeline.json`
 - `render-plan.json`
 - `intermediate-cut.mp4`
 - `final-output.mp4`
@@ -28,6 +29,7 @@ storage/jobs/<job-id>/
     audio.mp3
     transcript.json
     edit-plan.json
+    timeline.json
     render-plan.json
     intermediate-cut.mp4
     vertical.mp4
@@ -43,7 +45,7 @@ storage/jobs/<job-id>/
 - pnpm
 - OpenAI API key for real transcription/edit planning
 
-FFmpeg and FFprobe are provided through npm packages for MVP1. For YouTube downloads, ROVUNQ tries system `yt-dlp` first, then bundled `yt-dlp-exec`, then a JS downloader fallback.
+FFmpeg and FFprobe are provided through npm packages for MVP1. For YouTube downloads, ROVUNQ tries system `yt-dlp` first, then optional bundled `yt-dlp-exec`, then a JS downloader fallback. The bundled `yt-dlp-exec` package is patched to skip its outdated `python` binary preinstall check, so macOS `python3` and Windows `py` setups do not break `pnpm install`.
 
 ## Setup
 

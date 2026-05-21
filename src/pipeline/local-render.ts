@@ -13,6 +13,7 @@ import {
 } from './media';
 import {createEditPlan, transcribeAudio, validateAndRepairPlan} from './ai';
 import {createRenderPlan, renderWithRemotion} from './render';
+import {createTimelineProjectFromEditPlan} from '../schemas/timeline';
 import {JobLogger} from '../utils/log';
 import {getJobPaths} from '../utils/paths';
 
@@ -140,6 +141,15 @@ export const runLocalRender = async (options: RunLocalRenderOptions) => {
     const renderPlan = createRenderPlan(editPlan);
     await fs.writeJson(paths.renderPlan, renderPlan, {spaces: 2});
     await logger.push('render-plan', 'ok', 'Render plan saved', {path: paths.renderPlan});
+
+    await logger.push('timeline', 'start', 'Creating editable timeline.json');
+    const timeline = createTimelineProjectFromEditPlan({
+      jobId: options.jobId,
+      editPlan,
+      title: 'ROVUNQ AI Draft',
+    });
+    await fs.writeJson(paths.timeline, timeline, {spaces: 2});
+    await logger.push('timeline', 'ok', 'Editable timeline saved', {path: paths.timeline});
 
     await logger.push('remotion', 'start', 'Rendering final-output.mp4');
     const remotionTarget = options.bgmPath ? paths.remotionOutput : paths.finalOutput;

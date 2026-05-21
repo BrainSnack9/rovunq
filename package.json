@@ -29,9 +29,11 @@
     "react-dom": "^18.3.1",
     "remotion": "^4.0.369",
     "sanitize-filename": "^1.6.3",
-    "yt-dlp-exec": "^1.0.2",
     "zod": "^3.24.1",
     "zod-to-json-schema": "^3.24.1"
+  },
+  "optionalDependencies": {
+    "yt-dlp-exec": "^1.0.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
@@ -49,6 +51,9 @@
       "esbuild",
       "ffmpeg-static",
       "yt-dlp-exec"
-    ]
+    ],
+    "patchedDependencies": {
+      "yt-dlp-exec@1.0.2": "patches/yt-dlp-exec@1.0.2.patch"
+    }
   }
 }
